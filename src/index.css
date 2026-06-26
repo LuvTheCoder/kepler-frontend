@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================================
+   CSS Custom Properties — Apple Fitness Design System
+   ======================================================================== */
+:root {
+  --bg-app: #F2F2F7;          /* Apple Light Gray background */
+  --bg-card: #FFFFFF;         /* Pure white cards */
+  --bg-sidebar: #F5F5F7;
+  --bg-hover: rgba(0, 0, 0, 0.03);
+  --bg-active: rgba(0, 0, 0, 0.05);
+  --text-primary: #000000;
+  --text-secondary: #8E8E93;  /* Apple System Gray */
+  --text-tertiary: #C7C7CC;
+  --border-color: transparent;
+  
+  --accent-red: #FF2D55;      /* Fitness Activity Red */
+  --accent-green: #30D158;    /* Fitness Exercise Green */
+  --accent-blue: #0A84FF;     /* Fitness Stand Blue */
+  --accent-orange: #FF9500;   /* Trend Orange */
+}
+
+.dark {
+  --bg-app: #000000;          /* Apple Fitness Pure Black background */
+  --bg-card: #1C1C1E;         /* Apple System Gray 6 card background */
+  --bg-sidebar: #121212;      /* Dark sidebar */
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-active: rgba(255, 255, 255, 0.08);
+  --text-primary: #FFFFFF;
+  --text-secondary: #8E8E93;  /* Apple System Gray */
+  --text-tertiary: #48484A;
+  --border-color: transparent;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Remove default rounded corners across all elements */
+    border-radius: 0px !important;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #root {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-weight: 800; /* Heavy editorial weight */
+    letter-spacing: -0.04em; /* Compressed, premium tracking */
+  }
+
+  p {
+    color: var(--text-secondary);
+  }
+
+  /* Scrollbar - sharp edges */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(120, 120, 128, 0.3); border-radius: 0px !important; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(120, 120, 128, 0.5); }
+}
+
+@layer components {
+  /* Apple Fitness Widget Card - Flat, Sharp, No Borders */
+  .glass {
+    background: var(--bg-card);
+    border: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    border-radius: 0px !important;
+  }
+
+  .dark .glass {
+    box-shadow: none;
+  }
+
+  /* Calendar completed dot (square shape) */
+  .calendar-completed::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-green);
+    border-radius: 0px !important;
+  }
+
+  .calendar-today-completed::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 0px !important;
+  }
+}
