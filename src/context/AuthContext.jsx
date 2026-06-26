@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
 
   // Apple Logic: Apply theme with canvas styling and system level transitions
   useEffect(() => {
+    //console.log(API_BASE_URL);
     const root = document.documentElement;
     
     // Inject a temporary global transition style to make the theme shift fluid (macOS style fade)
